@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-hindi: "Inter", "Noto Sans Devanagari", sans-serif;
+  
+  --color-accent: #eaff00;
+  --color-secondary: #00aaff;
+  --color-bg: #e8e8e8;
+  --color-ink: #000000;
+}
+
+@layer base {
+  html, body {
+    @apply bg-bg text-ink font-sans selection:bg-accent selection:text-ink cursor-none;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-heading font-bold uppercase tracking-tight;
+  }
+}
+
+@layer utilities {
+  .brutal-border {
+    @apply border-2 border-ink;
+  }
+  
+  .brutal-shadow {
+    @apply shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
+  }
+  
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-secondary after:transition-all after:duration-300 hover:after:w-full hover:text-secondary transition-colors;
+  }
+  
+  .hindi-accent {
+    @apply font-hindi opacity-30 select-none pointer-events-none;
+  }
+}
